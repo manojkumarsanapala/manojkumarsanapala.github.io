@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..800&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
 <style>
 html{scroll-behavior:smooth}body{margin:0}img{max-width:100%}
-/* Layout: engineering datasheet. Left rail of mono labels, right column of content; hero pairs a statement with a live BMS readout. Accent = HV-cable orange. */
+/* Layout: engineering datasheet. Left rail of mono labels, right column of content; hero pairs a statement with an illustrative BMS animation. Accent = HV-cable orange. */
 :root{
   --bg:#F2F4F6; --surface:#FFFFFF; --ink:#0D1620; --muted:#55626F; --line:#D8DEE4;
   --accent:#D9540E; --accent-soft:#FBE7DA; --ok:#1E8A5A; --cell:#C7D0D8;
@@ -155,19 +155,19 @@ footer .wrap{padding-block:24px;display:flex;justify-content:space-between;gap:1
 
       <aside class="bms" aria-label="Illustrative battery pack readout">
         <div class="bms-head">
-          <span class="mono">Pack monitor · 12S</span>
+          <span class="mono">Simulated pack · 12S</span>
           <span class="mono" id="mode">Balancing</span>
         </div>
         <div class="readouts">
           <div><strong id="soc">78.4%</strong><small>SOC</small></div>
-          <div><strong id="vpack">44.21 V</strong><small>Pack</small></div>
-          <div><strong id="dv">18 mV</strong><small>ΔV cell</small></div>
+          <div><strong id="vpack">44.17 V</strong><small>Pack</small></div>
+          <div><strong id="dv">25 mV</strong><small>ΔV cell</small></div>
         </div>
         <div class="cells" id="cells"></div>
         <div class="cell-labels" id="labels"></div>
         <div class="bms-foot">
-          <span>T<sub>max</sub> 27.3 °C</span>
-          <span><em>■</em> passive bleed active</span>
+          <span>Illustrative values · no hardware connected</span>
+          <span id="bleed"><em>■</em> passive bleed active</span>
         </div>
       </aside>
     </div>
@@ -283,7 +283,6 @@ footer .wrap{padding-block:24px;display:flex;justify-content:space-between;gap:1
           <button class="copy" id="copy" type="button">Copy</button>
         </div>
         <div class="links">
-          <a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a>
           <a href="https://github.com/manojkumarsanapala" target="_blank" rel="noopener">GitHub</a>
         </div>
       </div>
@@ -317,7 +316,13 @@ footer .wrap{padding-block:24px;display:flex;justify-content:space-between;gap:1
     document.getElementById('vpack').textContent=(sum/1000).toFixed(2)+' V';
     document.getElementById('dv').textContent=(mx-mn)+' mV';
     document.getElementById('soc').textContent=soc.toFixed(1)+'%';
-    document.getElementById('mode').textContent=(mx-mn)>12?'Balancing':'Balanced';
+    var balancing=(mx-mn)>12;
+    document.getElementById('mode').textContent=balancing?'Balancing':'Balanced';
+    var bleed=document.getElementById('bleed');
+    bleed.replaceChildren();
+    var indicator=document.createElement('em'); indicator.textContent='■';
+    bleed.appendChild(indicator);
+    bleed.appendChild(document.createTextNode(balancing?' passive bleed active':' passive bleed inactive'));
   }
   render();
   var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
