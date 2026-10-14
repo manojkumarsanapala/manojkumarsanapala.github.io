@@ -1,10 +1,12 @@
 <!doctype html>
 <html lang="en">
 <head>
+<meta name="theme-color" content="#101a20">
+<script>try{document.documentElement.dataset.theme=localStorage.getItem("portfolio-theme")||"dark"}catch(e){document.documentElement.dataset.theme="dark"}</script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="description" content="Manoj Kumar Sanapala, M.Sc. Electromobility-ACES student at FAU Erlangen-Nürnberg.">
-<title>Manoj · Electromobility</title>
+<title>Manoj Kumar Sanapala · Electromobility &amp; Engineering</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..800&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
@@ -124,19 +126,43 @@ section.block h2{font-family:var(--display);font-variation-settings:"wdth" 112;f
 footer .wrap{padding-block:24px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+/* Visual system: warm copper, midnight green, precise engineering linework. */
+:root{--bg:#f4f2eb;--surface:#fffef9;--ink:#172a2e;--muted:#596b6c;--line:#d4dcd5;--accent:#ad461b;--accent-soft:#f6e6d6;--cell:#5e8786}
+:root[data-theme="dark"]{--bg:#101a20;--surface:#16242b;--ink:#edf1e8;--muted:#a3b6b7;--line:#2d4148;--accent:#f58143;--accent-soft:#302b26;--cell:#59868a}
+body{overflow-x:hidden}button{font:inherit}button,a{-webkit-tap-highlight-color:transparent}button{cursor:pointer}section[id]{scroll-margin-top:96px}::selection{background:var(--accent);color:var(--bg)}
+.wrap{max-width:1240px;padding-inline:32px}.skip-link{position:fixed;top:-80px;left:16px;z-index:50;padding:12px;background:var(--surface)}.skip-link:focus{top:12px}.reading-progress{position:fixed;top:0;left:0;height:3px;background:var(--accent);width:0;z-index:30;pointer-events:none}.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+header.nav{top:0}header.nav .wrap{padding-block:19px}.brand{font-size:12px;letter-spacing:.08em}.brand i{width:37px;height:37px;display:grid;place-items:center;color:var(--bg);font-style:normal;font-size:14px;border-radius:50%}.brand small{display:block;font:9px var(--mono);color:var(--muted);margin-top:4px;letter-spacing:.06em}nav{margin-left:auto}nav ul{gap:27px}nav a{font-size:13px}nav a[aria-current]{color:var(--accent)}.nav-tools{display:flex;gap:9px}.icon-btn{height:38px;min-width:38px;border:1px solid var(--line);background:transparent;color:var(--ink);border-radius:50%;font-size:20px}.menu-toggle{display:none;border-radius:6px;font-size:12px;padding:0 12px}
+.hero{background:radial-gradient(ellipse at 85% 32%,color-mix(in srgb,var(--cell) 12%,transparent),transparent 55%);position:relative}.hero .wrap{padding-block:78px 64px;grid-template-columns:1.05fr 1fr;gap:48px}.status{font-size:10px;letter-spacing:.08em;padding:7px 11px;border:1px solid var(--line);border-radius:30px}.status b{width:6px;height:6px;box-shadow:none}.hero-name{margin-top:30px;font-size:10px}.hero h1{font-size:clamp(49px,5.8vw,80px);line-height:1.02;letter-spacing:-.055em;margin:16px 0 23px;font-variation-settings:"wdth" 105;text-wrap:initial}.hero h1 span{white-space:nowrap}.lede{font-size:16px;max-width:48ch;line-height:1.8}.btn{border-radius:5px;padding:13px 20px;display:inline-flex;gap:28px;justify-content:space-between;align-items:center;font-size:13px}.btn:not(.ghost){background:var(--accent);border-color:var(--accent);color:#101a20}.btn.ghost{border-color:var(--line)}.btn:hover{transform:translateY(-3px)}
+.hero-visual{min-width:0;border:1px solid var(--line);border-radius:12px;background:color-mix(in srgb,var(--surface) 65%,transparent);padding:20px;box-shadow:0 25px 70px #00000012}.visual-caption{display:flex;justify-content:space-between;font-size:9px;gap:12px}.engineering-art{display:block;width:100%;color:var(--ink)}.hero-schematic{margin-top:8px;aspect-ratio:600/320}.art-caption{font-size:15px;margin:7px 0 21px;display:flex;justify-content:space-between;gap:15px}.art-caption span{font:9px var(--mono);color:var(--muted);align-self:center}.energy-path{stroke-dasharray:8 5;animation:flow 3s linear infinite}@keyframes flow{to{stroke-dashoffset:-52}}
+.bms{border-radius:7px;padding:15px;background:var(--bg)}.bms-head{margin-bottom:11px;padding-bottom:9px}.bms-head .mono{font-size:9px}.readouts{margin-bottom:12px}.readouts strong{font-size:19px}.readouts small{font-size:9px}.cells{height:48px}.cell span{border-radius:2px 2px 0 0}.cell-labels{font-size:8px}.bms-foot{flex-wrap:wrap;font-size:8px;margin-top:10px;padding-top:9px;gap:6px}.demo-controls{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:10px;font:9px var(--mono);color:var(--muted)}.demo-controls button{font:inherit;background:transparent;color:var(--ink);border:1px solid var(--line);border-radius:3px;padding:6px 9px}
+.profile-strip{display:grid;grid-template-columns:repeat(3,1fr);margin-bottom:64px}.profile-strip>div{border-block:1px solid var(--line);padding:23px 25px}.profile-strip>div+div{border-left:1px solid var(--line)}.profile-strip strong{display:block;font:600 17px var(--display);letter-spacing:-.02em}.profile-strip span{display:block;font-size:12px;color:var(--muted);margin-top:7px}
+section.block .wrap{grid-template-columns:170px 1fr;gap:46px;padding-block:75px}.rail{font-size:10px;display:flex;gap:14px;align-items:center}.rail:before{content:"";width:20px;height:1px;background:var(--accent)}section.block h2{font-size:clamp(29px,3.5vw,44px);line-height:1.13;letter-spacing:-.035em;font-variation-settings:"wdth" 105;max-width:none}.section-intro{color:var(--muted);max-width:55ch;margin:-7px 0 26px}.role{grid-template-columns:1fr;gap:10px;padding:28px 0 28px 24px;border-left:1px solid var(--line);position:relative}.role:before{content:"";position:absolute;width:7px;height:7px;background:var(--accent);border:5px solid var(--bg);border-radius:50%;left:-9px;top:31px}.role:first-of-type{padding-top:0}.role:first-of-type:before{top:3px}.role h3{font-size:18px;letter-spacing:-.02em}.role>.mono{font-size:10px}.role p{font-size:14px;line-height:1.8}.tag{font-size:10px;border-radius:4px;background:color-mix(in srgb,var(--line) 15%,transparent);padding:4px 7px}
+.filters{display:flex;gap:7px;flex-wrap:wrap;margin:0 0 25px}.filters button{background:transparent;border:1px solid var(--line);border-radius:30px;color:var(--muted);font-size:11px;padding:9px 14px}.filters button[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--bg)}.filters span{opacity:.55;margin-left:6px}.projects{grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}.proj{display:flex;flex-direction:column;gap:0;padding:0;border-radius:10px;overflow:hidden;transition:transform .25s,border-color .25s;min-width:0}.proj[hidden]{display:none}.proj:hover{transform:translateY(-4px)}.project-art{position:relative;background:radial-gradient(ellipse at center,color-mix(in srgb,var(--cell) 14%,transparent),transparent);border-bottom:1px solid var(--line);padding:7px 10px 20px}.art-note{position:absolute;bottom:9px;right:14px;font:8px var(--mono);color:var(--muted)}.proj>div:not(.project-art){padding:23px 23px 0}.proj .mono{font-size:9px;color:var(--accent)}.proj h3{font-size:21px;line-height:1.25;letter-spacing:-.025em;min-height:52px;font-variation-settings:"wdth" 100;margin-top:10px}.proj p{font-size:13px;line-height:1.8}.proj .tags{margin-bottom:20px}.spec{border:0;border-top:1px solid var(--line);padding:17px 0 0;margin:0 23px 20px;display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:auto}.spec div:last-child{grid-column:1/-1}.spec dt{font-size:8px}.spec dd{font-size:11px}.project-details{border-top:1px solid var(--line);padding:15px 23px}.project-details summary{cursor:pointer;display:flex;align-items:center;justify-content:space-between;font-size:12px;list-style:none}.project-details summary::-webkit-details-marker{display:none}.project-details summary span{font-size:18px;color:var(--accent)}.project-details[open] summary span{transform:rotate(45deg)}.project-details h4{font-size:13px;margin:18px 0 7px}.project-details p{margin:0 0 6px;color:var(--muted)}.wip{display:inline-block;background:var(--accent-soft);padding:4px 7px;border-radius:3px}
+.skills{border-radius:9px;overflow:hidden}.skills div{padding:27px;background:var(--surface)}.skills h3{font-size:10px}.skills p{font-size:14px}.edu .role{grid-template-columns:1fr}.edu h2{margin-bottom:32px}.edu .when{font-size:10px}.contact{background:#0b1418;color:#edf1e8;border-top:1px solid #2d4148}.contact .wrap{padding-block:82px;gap:70px}.contact h2{margin-top:23px;font-size:clamp(45px,5vw,67px);letter-spacing:-.045em;font-variation-settings:"wdth" 105}.contact .mono{color:#a3b6b7;font-size:10px}.contact h2 span{color:#f58143}.contact-intro{font-size:14px;line-height:1.9;color:#a3b6b7;margin:22px 0}.contact-cta{background:#f58143!important}.mail code{font-size:12px}.copy{color:#edf1e8;border-color:#51646b;border-radius:4px}.links{gap:22px;margin-top:24px}.links a{font-size:13px;border-color:#f58143}.contact .mail{margin-top:13px}footer .mono{font-size:9px}footer a{text-decoration:none}
+@media(min-width:861px){.hero-visual{transform:rotate(1deg)}}
+@media(max-width:1000px){.wrap{padding-inline:24px}.hero .wrap{gap:28px}section.block .wrap{grid-template-columns:130px 1fr;gap:28px}.hero h1{font-size:60px}.brand small{font-size:8px}nav ul{gap:17px}}
+@media(max-width:860px){.hero .wrap{grid-template-columns:1fr;padding-block:45px;gap:35px}.hero h1{font-size:clamp(48px,9vw,78px)}.hero-visual{max-width:580px;width:100%;justify-self:center}.hero-schematic{max-height:290px}.hero .lede{max-width:60ch}.profile-strip{margin-bottom:35px}.profile-strip>div{padding:20px 14px}section.block .wrap{grid-template-columns:1fr;gap:24px;padding-block:50px}.rail{position:static}.contact .wrap{gap:30px}}
+@media(max-width:640px){.wrap{padding-inline:20px}header.nav .wrap{padding-block:12px;gap:10px}.brand{font-size:10px}.brand i{width:32px;height:32px}.brand small{font-size:7px}nav{margin:0}nav ul{display:flex;flex-direction:column;gap:0}nav{position:absolute;top:100%;left:0;right:0;background:var(--surface);border-bottom:1px solid var(--line);display:none;padding:12px 20px}nav.open{display:block}nav a{display:block;padding:13px}.menu-toggle{display:block}.nav-tools{margin-left:auto}.icon-btn{height:35px;min-width:35px}.hero-name{font-size:8px;margin-top:27px}.hero h1{font-size:clamp(43px,11.3vw,68px)}.status{font-size:8px}.lede{font-size:15px}.hero-visual{padding:14px}.visual-caption{font-size:8px}.art-caption{font-size:13px}.art-caption span{font-size:8px}.profile-strip{grid-template-columns:1fr}.profile-strip>div{display:flex;justify-content:space-between;align-items:center;gap:15px;padding:18px 0}.profile-strip>div+div{border-left:0;border-top:0}.profile-strip strong{font-size:14px}.profile-strip span{font-size:10px;text-align:right;margin:0}.projects{grid-template-columns:1fr}.proj h3{min-height:0}.skills{grid-template-columns:1fr}.contact .wrap{grid-template-columns:1fr;padding-block:55px}.contact h2{font-size:49px}.bms-foot{font-size:8px}.role h3{font-size:17px}.role{padding-left:20px}.btn{gap:17px;padding:12px 16px}.cell-labels{font-size:7px}.mail code{font-size:11px}.visual-caption{gap:7px}.demo-controls{font-size:8px}section[id]{scroll-margin-top:78px}}
+:root[data-theme="light"] .btn:not(.ghost){color:#fffef9}
+.contact .contact-cta{color:#101a20!important}
+@media(max-width:380px){.cell-labels{font-size:6px;gap:3px}.cells{gap:3px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition:none!important}}
+
 </style>
 </head>
 <body>
+<a class="skip-link" href="#top">Skip to content</a><div class="reading-progress" id="progress"></div>
 
 <header class="nav">
   <div class="wrap">
-    <a class="brand" href="#top"><i></i>MANOJ</a>
-    <nav><ul>
+    <a class="brand" href="#top"><i>MS</i><span>MANOJ SANAPALA<small>ELECTROMOBILITY · ENGINEERING</small></span></a>
+    <nav aria-label="Main navigation" id="navigation"><ul>
       <li><a href="#experience">Experience</a></li>
       <li><a href="#projects">Projects</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul></nav>
+    <div class="nav-tools"><button class="icon-btn" id="theme" aria-label="Switch to light theme">◐</button><button class="icon-btn menu-toggle" id="menu" aria-expanded="false" aria-controls="navigation">Menu +</button></div>
   </div>
 </header>
 
@@ -145,15 +171,15 @@ footer .wrap{padding-block:24px;display:flex;justify-content:space-between;gap:1
     <div class="wrap">
       <div>
         <span class="mono status"><b></b>Open to internships · Electromobility</span>
-        <h1>From mechanical systems to <span>high-voltage</span> drivetrains.</h1>
-        <p class="lede">I'm Manoj Kumar Sanapala, an M.Sc. Electromobility-ACES student at FAU Erlangen-Nürnberg. During my field service internship at Alt Green, I diagnosed electric vehicle faults, tested battery management and charging systems, and updated ECU firmware. My academic work spans engineering analysis, power electronics and machine learning in product development.</p>
+        <div class="hero-name mono">Manoj Kumar Sanapala / Portfolio 2026</div><h1>Engineering<br>the next<br><span>electric mile.</span></h1>
+        <p class="lede">Mechanical foundations. Electric ambition. I’m Manoj, an M.Sc. Electromobility-ACES student at FAU, connecting hands-on EV experience with simulation, power electronics and research.</p>
         <div class="ctas">
-          <a class="btn" href="#projects">View projects</a>
-          <a class="btn ghost" href="#contact">Get in touch</a>
+          <a class="btn" href="#projects">Explore my work <span aria-hidden="true">↗</span></a>
+          <a class="btn ghost" href="#contact">Let’s connect <span aria-hidden="true">↗</span></a>
         </div>
       </div>
 
-      <aside class="bms" aria-label="Illustrative battery pack readout">
+      <div class="hero-visual"><div class="visual-caption mono"><span>Systems in perspective</span><span>01 / E-POWERTRAIN</span></div><svg class="engineering-art hero-schematic" viewBox="0 0 600 320" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs><linearGradient id="energy"><stop stop-color="#f58143"/><stop offset="1" stop-color="#fbc28b"/></linearGradient></defs><g stroke="currentColor" opacity=".17"><path d="M0 80H600M0 160H600M0 240H600M100 0V320M200 0V320M300 0V320M400 0V320M500 0V320"/><ellipse cx="310" cy="180" rx="245" ry="106"/><ellipse cx="310" cy="180" rx="190" ry="76"/></g><g stroke="currentColor" stroke-width="2"><path d="m110 188 182-100 205 99-183 105Z"/><path d="M110 188V209L314 315V292M497 187V208L314 315"/><path d="m159 181 133-72 151 73-134 76Z"/><rect x="217" y="145" width="112" height="61" rx="8" transform="rotate(26 217 145)"/></g><g stroke="url(#energy)" stroke-width="5"><path class="energy-path" d="m155 187 79-44 104 50 70-39"/><path d="m338 193 0 43"/></g><g fill="#f58143"><circle cx="155" cy="187" r="7"/><circle cx="408" cy="154" r="7"/><circle cx="338" cy="236" r="7"/></g><g fill="currentColor" font-family="monospace" font-size="12"><text x="39" y="100">ENERGY</text><text x="416" y="108">CONTROL</text><text x="420" y="274">MOTION</text></g><g stroke="currentColor" opacity=".5"><path d="M82 108 146 178M455 114 414 146M415 266 346 239"/></g></svg><p class="art-caption">Energy. Control. Motion.<span>Concept illustration</span></p><aside class="bms" aria-label="Illustrative battery pack readout">
         <div class="bms-head">
           <span class="mono">Simulated pack · 12S</span>
           <span class="mono" id="mode">Balancing</span>
@@ -169,21 +195,24 @@ footer .wrap{padding-block:24px;display:flex;justify-content:space-between;gap:1
           <span>Illustrative values · no hardware connected</span>
           <span id="bleed"><em>■</em> passive bleed active</span>
         </div>
-      </aside>
+      <div class="demo-controls"><button id="pause-demo" type="button" aria-pressed="false">Pause animation</button><span>Illustrative battery demo</span></div></aside></div>
     </div>
   </section>
 
+  <div class="profile-strip wrap"><div><strong>FAU</strong><span>M.Sc. Electromobility-ACES</span></div><div><strong>EV systems</strong><span>Field service &amp; diagnostics</span></div><div><strong>Erlangen, DE</strong><span>Open to internships</span></div></div>
   <section class="block" id="experience">
     <div class="wrap">
       <div class="rail mono">Experience</div>
       <div class="content">
-        <h2>Field experience with electric vehicles.</h2>
+        <h2>From the workshop<br>to the research lab.</h2>
         <div class="role">
           <h3>Field Service Engineer · Alt Green</h3>
           <span class="mono">Internship · Oct 2023–Feb 2024</span>
           <p>Diagnosed and resolved electrical faults in electric cargo vehicles on site, including starting failures, charging problems and range loss. Performed circuit tests and fault analysis on battery management systems, charging systems and vehicle control units. Updated ECU firmware using proprietary diagnostic software through a direct laptop-to-vehicle connection.</p>
           <div class="tags"><span class="tag">BMS diagnostics</span><span class="tag">ECU firmware</span><span class="tag">Charging systems</span><span class="tag">Root-cause analysis</span></div>
         </div>
+        <div class="role"><h3>R&amp;D Engineer · Indo Dynamics</h3><span class="mono">Internship · Jun–Sep 2023</span><p>Supported research, data structuring and quality inspections alongside manufacturing teams. Assisted with functional design testing and optimisation using ANSYS.</p><div class="tags"><span class="tag">ANSYS</span><span class="tag">Design validation</span><span class="tag">Manufacturing</span></div></div>
+        <div class="role"><h3>Mechanical Engineer · Sagar Cements</h3><span class="mono">Trainee · Sep–Dec 2021</span><p>Gained practical experience with vertical roller mills and cement production under mechanical engineering supervision, including data analysis using Power BI.</p><div class="tags"><span class="tag">Mechanical systems</span><span class="tag">Power BI</span></div></div>
       </div>
     </div>
   </section>
@@ -192,9 +221,10 @@ footer .wrap{padding-block:24px;display:flex;justify-content:space-between;gap:1
     <div class="wrap">
       <div class="rail mono">Projects</div>
       <div class="content">
-        <h2>Selected work across batteries, power electronics and ML.</h2>
+        <h2>A closer look<br>at the work.</h2>
+        <p class="section-intro">From electric drivetrains to the questions shaping product development. Explore by area.</p><div class="filters" role="group" aria-label="Filter projects"><button aria-pressed="true" data-filter="all">All work <span>04</span></button><button aria-pressed="false" data-filter="ev">EV &amp; batteries</button><button aria-pressed="false" data-filter="research">Research</button><button aria-pressed="false" data-filter="power">Power electronics</button></div><p class="sr-only" id="filter-status" aria-live="polite"></p>
         <div class="projects">
-          <article class="proj">
+          <article class="proj" data-category="ev"><div class="project-art"><svg class="engineering-art " viewBox="0 0 600 320" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><g stroke="currentColor" stroke-width="2"><path d="M126 210 205 112H365L460 210Z"/><path d="M155 183H424M205 112 236 210M365 112 338 210M180 151H397"/><rect x="98" y="175" width="52" height="70" rx="15"/><rect x="438" y="175" width="52" height="70" rx="15"/><rect x="171" y="83" width="43" height="55" rx="12"/><rect x="355" y="83" width="43" height="55" rx="12"/><path d="M275 170V134H312V170M262 183H325V211H262Z"/></g><g stroke="#f58143" stroke-width="3"><rect x="217" y="153" width="32" height="49" rx="3"/><path d="M249 175H262M325 197H438"/><circle cx="295" cy="195" r="11"/></g><path d="M80 273H510M80 265V281M510 265V281" stroke="currentColor" opacity=".35"/><g fill="currentColor" font-family="monospace" font-size="11"><text x="220" y="295">DRIVETRAIN / CONCEPT VIEW</text><text x="50" y="64">01 — ELECTRIC MOBILITY</text></g></svg><span class="art-note">Concept illustration</span></div>
             <div>
               <span class="mono">Electric drivetrain</span>
               <h3>Electric go-kart design · GKDC</h3>
@@ -205,10 +235,9 @@ footer .wrap{padding-block:24px;display:flex;justify-content:space-between;gap:1
               <div><dt>Type</dt><dd>Team competition</dd></div>
               <div><dt>Focus</dt><dd>Electric drivetrain</dd></div>
               <div><dt>Role</dt><dd>Drivetrain team lead</dd></div>
-            </dl>
-          </article>
+            </dl><details class="project-details"><summary>Explore the work <span aria-hidden="true">+</span></summary><h4>My contribution</h4><p>Led a six-person drivetrain team. Worked on motor and battery selection, ANSYS-supported analysis and a battery cooling system.</p></details></article>
 
-          <article class="proj">
+          <article class="proj" data-category="research"><div class="project-art"><svg class="engineering-art " viewBox="0 0 600 320" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><g stroke="currentColor" stroke-width="2"><circle cx="238" cy="158" r="102"/><circle cx="238" cy="158" r="80"/><circle cx="238" cy="158" r="53"/><circle cx="238" cy="158" r="37"/><circle cx="304" cy="158" r="12"/><circle cx="291.39512162874655" cy="196.79382665130322" r="12"/><circle cx="258.39512162874655" cy="220.76973007548014" r="12"/><circle cx="217.60487837125348" cy="220.76973007548014" r="12"/><circle cx="184.60487837125348" cy="196.79382665130322" r="12"/><circle cx="172" cy="158" r="12"/><circle cx="184.60487837125348" cy="119.20617334869678" r="12"/><circle cx="217.60487837125345" cy="95.23026992451986" r="12"/><circle cx="258.3951216287465" cy="95.23026992451986" r="12"/><circle cx="291.39512162874655" cy="119.20617334869675" r="12"/><path d="M349 158H390M390 103V213M390 103H442M390 158H442M390 213H442"/></g><g fill="#f58143"><circle cx="454" cy="103" r="9"/><circle cx="454" cy="158" r="9"/><circle cx="454" cy="213" r="9"/></g><g fill="currentColor" font-family="monospace" font-size="11"><text x="50" y="37">02 — RESEARCH &amp; MACHINE LEARNING</text><text x="164" y="295">DESIGN → EVIDENCE → INSIGHT</text></g></svg><span class="art-note">Concept illustration</span></div>
             <div>
               <span class="mono">Research</span>
               <h3>Machine learning in rolling bearing development</h3>
@@ -219,10 +248,9 @@ footer .wrap{padding-block:24px;display:flex;justify-content:space-between;gap:1
               <div><dt>Institute</dt><dd>KTmfk, FAU</dd></div>
               <div><dt>Method</dt><dd>Mixed methods</dd></div>
               <div><dt>Type</dt><dd>M.Sc. project</dd></div>
-            </dl>
-          </article>
+            </dl><details class="project-details"><summary>Explore the work <span aria-hidden="true">+</span></summary><h4>Research approach</h4><p>Literature review, anonymous expert survey design for the DACH region, complementary expert interviews and comparison with other industries.</p></details></article>
 
-          <article class="proj">
+          <article class="proj" data-category="power"><div class="project-art"><svg class="engineering-art " viewBox="0 0 600 320" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><g stroke="currentColor" stroke-width="2"><path d="m140 190 180-80 150 70-180 83Z"/><path d="M140 190V216L290 290V263M470 180V206L290 290"/><path d="m178 181 142-62 109 51-140 65Z"/><path d="m225 172 45-20 32 16-45 20Zm83 4 44-20 32 16-44 20Z"/><path d="M270 152Q277 80 350 121M282 158Q295 89 361 126M352 156Q365 104 410 145" stroke="#f58143" stroke-width="3"/><path d="M190 190V145M202 185V138M214 180V133"/></g><g fill="currentColor" font-family="monospace" font-size="11"><text x="50" y="40">03 — POWER ELECTRONICS</text><text x="361" y="281">BOND / SINTER / TEST</text></g></svg><span class="art-note">Concept illustration</span></div>
             <div>
               <span class="mono">Power electronics</span>
               <h3>Production technologies for power modules</h3>
@@ -233,9 +261,8 @@ footer .wrap{padding-block:24px;display:flex;justify-content:space-between;gap:1
               <div><dt>Chair</dt><dd>FAPS, FAU</dd></div>
               <div><dt>Format</dt><dd>Lab + reports</dd></div>
               <div><dt>Device</dt><dd>Semitrans 2</dd></div>
-            </dl>
-          </article>
-        </div>
+            </dl><details class="project-details"><summary>Explore the work <span aria-hidden="true">+</span></summary><h4>Lab methods</h4><p>Aluminium heavy-wire bonding with pull and shear testing; pressure-assisted silver sintering; thermal resistance and transient thermal impedance characterisation.</p></details></article>
+<article class="proj" data-category="ev"><div class="project-art"><svg class="engineering-art " viewBox="0 0 600 320" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><g stroke="currentColor" stroke-width="2"><rect x="118" y="103" width="290" height="130" rx="12"/><rect x="408" y="143" width="18" height="50" rx="3"/><rect x="135" y="122" width="31" height="91" rx="4"/><rect x="178" y="122" width="31" height="91" rx="4"/><rect x="221" y="122" width="31" height="91" rx="4"/><rect x="264" y="122" width="31" height="91" rx="4"/><rect x="307" y="122" width="31" height="91" rx="4"/><rect x="350" y="122" width="31" height="91" rx="4"/><path d="M165 103V75H458V143M290 233V263H458V193"/><rect x="436" y="143" width="45" height="50" rx="5"/></g><path d="m278 136-22 35h25l-18 32 42-44h-25l16-23" fill="#f58143"/><g fill="currentColor" font-family="monospace" font-size="11"><text x="50" y="40">04 — BATTERY SYSTEMS</text><text x="439" y="174">BMS</text><text x="159" y="296">WORK IN PROGRESS / CONCEPT</text></g></svg><span class="art-note">Concept illustration</span></div><div><span class="mono wip">● Work in progress</span><h3>Battery management system</h3><p>A personal BMS project at the planning and development stage. I’m building on my experience with EV diagnostics and academic work in electrical energy storage.</p><div class="tags"><span class="tag">Battery systems</span><span class="tag">Personal learning project</span></div></div><dl class="spec"><div><dt>Type</dt><dd>Personal project</dd></div><div><dt>Status</dt><dd>Work in progress</dd></div><div><dt>Next</dt><dd>Define scope &amp; document progress</dd></div></dl><details class="project-details"><summary>Follow the development <span aria-hidden="true">+</span></summary><h4>At the starting line</h4><p>Scope, tools and implementation details are still being defined. This card will be updated as the work develops. The animated battery display above is an illustrative website demo.</p></details></article>        </div>
       </div>
     </div>
   </section>
@@ -244,8 +271,8 @@ footer .wrap{padding-block:24px;display:flex;justify-content:space-between;gap:1
     <div class="wrap">
       <div class="rail mono">Skills</div>
       <div class="content">
-        <h2>Toolchain.</h2>
-        <div class="skills">
+        <h2>The tools behind<br>the thinking.</h2>
+        <p class="section-intro">Tools used across coursework, internships and engineering projects.</p><div class="skills">
           <div><h3>Modelling &amp; simulation</h3><p>MATLAB, ANSYS (FEA)</p></div>
           <div><h3>Programming &amp; data</h3><p>Python, C, Power BI, Excel</p></div>
           <div><h3>Design &amp; CAD</h3><p>AutoCAD, CATIA, Siemens NX</p></div>
@@ -258,7 +285,7 @@ footer .wrap{padding-block:24px;display:flex;justify-content:space-between;gap:1
   <section class="block" id="education">
     <div class="wrap">
       <div class="rail mono">Education</div>
-      <div class="content edu">
+      <div class="content edu"><h2>A mechanical foundation.<br>An electric direction.</h2>
         <div class="role">
           <h3>M.Sc. Electromobility-ACES</h3>
           <span class="when">Apr 2024–Present</span>
@@ -275,12 +302,12 @@ footer .wrap{padding-block:24px;display:flex;justify-content:space-between;gap:1
 
   <section class="contact" id="contact">
     <div class="wrap">
-      <h2>Looking for an <span>electromobility</span> internship in Germany.</h2>
+      <div><span class="mono">NEXT CHAPTER / LET’S TALK</span><h2>Let’s put ideas<br><span>in motion.</span></h2><p class="contact-intro">Looking for an electromobility internship in Germany.<br>Available to start at short notice.</p><a class="btn contact-cta" href="mailto:sanapalamanojkumar2772@gmail.com?subject=Internship%20opportunity">Start a conversation ↗</a></div>
       <div>
         <span class="mono">Based in Erlangen · Email</span>
         <div class="mail">
           <code id="email">sanapalamanojkumar2772@gmail.com</code>
-          <button class="copy" id="copy" type="button">Copy</button>
+          <button class="copy" id="copy" type="button" aria-live="polite">Copy</button>
         </div>
         <div class="links">
           <a href="https://www.linkedin.com/in/smk-manoj" target="_blank" rel="noopener">LinkedIn</a>
@@ -292,7 +319,7 @@ footer .wrap{padding-block:24px;display:flex;justify-content:space-between;gap:1
 </main>
 
 <footer>
-  <div class="wrap mono"><span>© 2026 Manoj</span><span>Erlangen, DE</span></div>
+  <div class="wrap mono"><span>© 2026 Manoj</span><a href="#top">Back to top ↑</a></div>
 </footer>
 
 <script>
@@ -327,8 +354,13 @@ footer .wrap{padding-block:24px;display:flex;justify-content:space-between;gap:1
   }
   render();
   var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if(!reduce){
+  var paused=reduce;
+  var pauseButton=document.getElementById("pause-demo");
+  function updatePause(){pauseButton.textContent=paused?"Play animation":"Pause animation";pauseButton.setAttribute("aria-pressed",String(paused));}
+  updatePause();pauseButton.addEventListener("click",function(){paused=!paused;updatePause();});
+  {
     setInterval(function(){
+      if(paused || document.hidden) return;
       var mx=Math.max.apply(null,base), mn=Math.min.apply(null,base);
       for(var i=0;i<N;i++){
         if(base[i]===mx && mx-mn>12) base[i]-=2;          // bleed the highest cell
@@ -348,5 +380,22 @@ footer .wrap{padding-block:24px;display:flex;justify-content:space-between;gap:1
   });
 })();
 </script>
+<script>(()=>{
+const root=document.documentElement, theme=document.getElementById('theme');
+function themeLabel(){theme.setAttribute('aria-label',root.dataset.theme==='dark'?'Switch to light theme':'Switch to dark theme');}
+themeLabel();theme.addEventListener('click',()=>{root.dataset.theme=root.dataset.theme==='dark'?'light':'dark';try{localStorage.setItem('portfolio-theme',root.dataset.theme)}catch(e){}themeLabel();});
+const menu=document.getElementById('menu'),nav=document.getElementById('navigation');
+function closeMenu(){nav.classList.remove('open');menu.setAttribute('aria-expanded','false');menu.textContent='Menu +';}
+menu.addEventListener('click',()=>{const open=menu.getAttribute('aria-expanded')!=='true';nav.classList.toggle('open',open);menu.setAttribute('aria-expanded',String(open));menu.textContent=open?'Close −':'Menu +';});
+nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu));
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&menu.getAttribute('aria-expanded')==='true'){closeMenu();menu.focus();}});
+const cards=[...document.querySelectorAll('.proj')];
+document.querySelectorAll('[data-filter]').forEach(button=>button.addEventListener('click',()=>{document.querySelectorAll('[data-filter]').forEach(b=>b.setAttribute('aria-pressed',String(b===button)));let count=0;cards.forEach(card=>{const show=button.dataset.filter==='all'||card.dataset.category===button.dataset.filter;card.hidden=!show;if(show)count++;});document.getElementById('filter-status').textContent=count+' projects shown';}));
+function progress(){const height=document.documentElement.scrollHeight-innerHeight;document.getElementById('progress').style.width=(height>0?scrollY/height*100:0)+'%';}
+addEventListener('scroll',progress,{passive:true});addEventListener('resize',progress);progress();
+if('IntersectionObserver' in window){const observer=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){nav.querySelectorAll('a').forEach(a=>{if(a.hash==='#'+entry.target.id)a.setAttribute('aria-current','location');else a.removeAttribute('aria-current');});}});},{rootMargin:'-15% 0px -60% 0px'});document.querySelectorAll('section[id]').forEach(section=>observer.observe(section));}
+})();
+</script>
 </body>
 </html>
+
