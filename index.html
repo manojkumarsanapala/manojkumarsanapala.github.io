@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Manoj, electromobility engineer and M.Sc. Electromobility-ACES student at FAU Erlangen-Nürnberg.">
+<title>Manoj · Electromobility</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..800&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+html{scroll-behavior:smooth}body{margin:0}img{max-width:100%}
+/* Layout: engineering datasheet. Left rail of mono labels, right column of content; hero pairs a statement with a live BMS readout. Accent = HV-cable orange. */
+:root{
+  --bg:#F2F4F6; --surface:#FFFFFF; --ink:#0D1620; --muted:#55626F; --line:#D8DEE4;
+  --accent:#D9540E; --accent-soft:#FBE7DA; --ok:#1E8A5A; --cell:#C7D0D8;
+  --display:"Archivo","Helvetica Neue",Arial,sans-serif;
+  --body:"IBM Plex Sans","Segoe UI",Roboto,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0B1117; --surface:#111A22; --ink:#E7EDF2; --muted:#8C9AA7; --line:#22303C;
+  --accent:#FF7A2E; --accent-soft:#2A1A10; --ok:#3CC48A; --cell:#2A3946; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0B1117; --surface:#111A22; --ink:#E7EDF2; --muted:#8C9AA7; --line:#22303C;
+  --accent:#FF7A2E; --accent-soft:#2A1A10; --ok:#3CC48A; --cell:#2A3946; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+.wrap{max-width:1120px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.mono{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+
+/* nav */
+header.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:color-mix(in srgb,var(--bg) 86%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+header.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:14px}
+.brand{font-family:var(--display);font-variation-settings:"wdth" 125;font-weight:700;font-size:15px;letter-spacing:.02em;text-decoration:none;display:flex;align-items:center;gap:10px}
+.brand i{width:10px;height:10px;background:var(--accent);display:inline-block}
+nav ul{display:flex;gap:22px;list-style:none;margin:0;padding:0}
+nav a{text-decoration:none;font-size:14px;color:var(--muted)}
+nav a:hover{color:var(--ink)}
+@media (max-width:640px){nav ul{display:none}}
+
+/* hero */
+.hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center;padding-block:72px 64px}
+.hero h1{font-family:var(--display);font-variation-settings:"wdth" 125;font-weight:800;font-size:clamp(40px,6.4vw,76px);line-height:.98;letter-spacing:-.02em;margin:18px 0 22px;text-wrap:balance}
+.hero h1 span{color:var(--accent)}
+.lede{font-size:18px;color:var(--muted);max-width:56ch;margin:0 0 28px}
+.status{display:inline-flex;align-items:center;gap:8px}
+.status b{width:8px;height:8px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 4px color-mix(in srgb,var(--ok) 20%,transparent)}
+.ctas{display:flex;flex-wrap:wrap;gap:12px}
+.btn{font-family:var(--body);font-weight:600;font-size:15px;padding:12px 20px;border:1px solid var(--ink);background:var(--ink);color:var(--bg);text-decoration:none;cursor:pointer;transition:transform .15s}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+.btn:hover{transform:translateY(-1px)}
+@media (max-width:860px){.hero .wrap{grid-template-columns:1fr;gap:40px;padding-block:48px}}
+
+/* BMS panel */
+.bms{background:var(--surface);border:1px solid var(--line);padding:20px;min-width:0}
+.bms-head{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid var(--line);padding-bottom:12px;margin-bottom:16px}
+.readouts{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:18px}
+.readouts div{display:flex;flex-direction:column;gap:2px}
+.readouts strong{font-family:var(--mono);font-weight:500;font-size:22px;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.readouts small{font-family:var(--mono);font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
+.cells{display:grid;grid-template-columns:repeat(12,1fr);gap:5px;align-items:end;height:120px}
+.cell{position:relative;height:100%;display:flex;align-items:flex-end;background:color-mix(in srgb,var(--cell) 40%,transparent)}
+.cell span{display:block;width:100%;background:var(--cell);transition:height .9s ease}
+.cell.bal span{background:var(--accent)}
+.cell-labels{display:grid;grid-template-columns:repeat(12,1fr);gap:5px;margin-top:6px;font-family:var(--mono);font-size:9px;color:var(--muted);text-align:center;font-variant-numeric:tabular-nums}
+.bms-foot{display:flex;justify-content:space-between;gap:12px;margin-top:14px;padding-top:12px;border-top:1px solid var(--line);font-family:var(--mono);font-size:11px;color:var(--muted)}
+.bms-foot em{font-style:normal;color:var(--accent)}
+
+/* sections */
+section.block{border-top:1px solid var(--line)}
+section.block .wrap{display:grid;grid-template-columns:200px 1fr;gap:40px;padding-block:72px}
+section.block h2{font-family:var(--display);font-variation-settings:"wdth" 112;font-weight:700;font-size:clamp(26px,3.2vw,36px);line-height:1.1;letter-spacing:-.01em;margin:0 0 28px;text-wrap:balance;max-width:24ch}
+.rail{position:sticky;top:calc(env(safe-area-inset-top,0px) + 84px);align-self:start}
+@media (max-width:760px){section.block .wrap{grid-template-columns:1fr;gap:12px;padding-block:52px}.rail{position:static}}
+.content{min-width:0}
+
+/* experience */
+.role{display:grid;grid-template-columns:1fr auto;gap:8px 24px;padding:24px 0;border-bottom:1px solid var(--line)}
+.role:first-of-type{padding-top:0}
+.role h3{font-family:var(--display);font-variation-settings:"wdth" 110;font-size:20px;font-weight:700;margin:0}
+.role p{grid-column:1/-1;margin:0;color:var(--muted);max-width:64ch}
+.tags{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.tag{font-family:var(--mono);font-size:11px;padding:4px 8px;border:1px solid var(--line);color:var(--muted);letter-spacing:.03em}
+
+/* projects */
+.projects{display:grid;gap:20px}
+.proj{background:var(--surface);border:1px solid var(--line);padding:28px;display:grid;grid-template-columns:minmax(0,1fr) 220px;gap:28px;transition:border-color .2s}
+.proj:hover{border-color:var(--accent)}
+.proj h3{font-family:var(--display);font-variation-settings:"wdth" 110;font-size:22px;font-weight:700;margin:6px 0 10px;line-height:1.2}
+.proj p{margin:0 0 14px;color:var(--muted);max-width:60ch}
+.spec{font-family:var(--mono);font-size:12px;border-left:1px solid var(--line);padding-left:20px;display:flex;flex-direction:column;gap:12px}
+.spec dt{color:var(--muted);text-transform:uppercase;letter-spacing:.08em;font-size:10px}
+.spec dd{margin:2px 0 0;color:var(--ink)}
+@media (max-width:760px){.proj{grid-template-columns:1fr;padding:22px}.spec{border-left:0;border-top:1px solid var(--line);padding:16px 0 0}}
+
+/* skills */
+.skills{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+.skills div{background:var(--bg);padding:22px}
+.skills h3{font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin:0 0 10px}
+.skills p{margin:0;font-size:15px}
+@media (max-width:560px){.skills{grid-template-columns:1fr}}
+
+/* education */
+.edu{display:grid;gap:0}
+.edu .role{grid-template-columns:1fr auto}
+.edu .when{font-family:var(--mono);font-size:12px;color:var(--muted);white-space:nowrap}
+
+/* contact */
+.contact{background:var(--ink);color:var(--bg)}
+.contact .wrap{padding-block:80px;display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:end}
+.contact h2{font-family:var(--display);font-variation-settings:"wdth" 125;font-weight:800;font-size:clamp(32px,5vw,56px);line-height:1;letter-spacing:-.02em;margin:0;text-wrap:balance}
+.contact h2 span{color:var(--accent)}
+.contact .mono{color:color-mix(in srgb,var(--bg) 60%,var(--ink))}
+.mail{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:14px 0 18px}
+.mail code{font-family:var(--mono);font-size:15px;user-select:all;word-break:break-all}
+.copy{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;background:transparent;color:var(--bg);border:1px solid color-mix(in srgb,var(--bg) 40%,var(--ink));padding:6px 10px;cursor:pointer}
+.links{display:flex;gap:18px;flex-wrap:wrap}
+.links a{font-weight:600;text-decoration:none;border-bottom:1px solid var(--accent);padding-bottom:2px}
+@media (max-width:760px){.contact .wrap{grid-template-columns:1fr;padding-block:56px}}
+footer .wrap{padding-block:24px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top"><i></i>MANOJ</a>
+    <nav><ul>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul></nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <span class="mono status"><b></b>Open to internships · Electromobility</span>
+        <h1>From mechanical systems to <span>high-voltage</span> drivetrains.</h1>
+        <p class="lede">I'm Manoj, an M.Sc. Electromobility-ACES student at FAU Erlangen-Nürnberg. Before Germany I worked in the field on electric vehicles, diagnosing battery management systems, flashing ECU firmware and commissioning chargers. Now I model, simulate and research the systems I used to repair.</p>
+        <div class="ctas">
+          <a class="btn" href="#projects">View projects</a>
+          <a class="btn ghost" href="#contact">Get in touch</a>
+        </div>
+      </div>
+
+      <aside class="bms" aria-label="Illustrative battery pack readout">
+        <div class="bms-head">
+          <span class="mono">Pack monitor · 12S</span>
+          <span class="mono" id="mode">Balancing</span>
+        </div>
+        <div class="readouts">
+          <div><strong id="soc">78.4%</strong><small>SOC</small></div>
+          <div><strong id="vpack">44.21 V</strong><small>Pack</small></div>
+          <div><strong id="dv">18 mV</strong><small>ΔV cell</small></div>
+        </div>
+        <div class="cells" id="cells"></div>
+        <div class="cell-labels" id="labels"></div>
+        <div class="bms-foot">
+          <span>T<sub>max</sub> 27.3 °C</span>
+          <span><em>■</em> passive bleed active</span>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="block" id="experience">
+    <div class="wrap">
+      <div class="rail mono">Experience</div>
+      <div class="content">
+        <h2>Hands-on with production EVs before the lecture hall.</h2>
+        <div class="role">
+          <h3>Field Service Engineer · Alt Green</h3>
+          <span class="mono">EV systems</span>
+          <p>Supported electric vehicles in service. Diagnosed battery management system faults, updated and flashed ECU firmware, and troubleshot charging systems on site, working between drivers, workshop technicians and the engineering team.</p>
+          <div class="tags"><span class="tag">BMS diagnostics</span><span class="tag">ECU firmware</span><span class="tag">Charging systems</span><span class="tag">Root-cause analysis</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="projects">
+    <div class="wrap">
+      <div class="rail mono">Projects</div>
+      <div class="content">
+        <h2>Selected work across batteries, power electronics and ML.</h2>
+        <div class="projects">
+          <article class="proj">
+            <div>
+              <span class="mono">Battery systems</span>
+              <h3>Battery management system in MATLAB/Simulink</h3>
+              <p>A BMS built phase by phase, from the cell model up to the supervisory logic: state-of-charge estimation, voltage and temperature protection, and cell balancing for a series-connected pack.</p>
+              <div class="tags"><span class="tag">MATLAB</span><span class="tag">Simulink</span><span class="tag">SOC estimation</span><span class="tag">Cell balancing</span></div>
+            </div>
+            <dl class="spec">
+              <div><dt>Type</dt><dd>Personal project</dd></div>
+              <div><dt>Focus</dt><dd>Modelling &amp; control</dd></div>
+              <div><dt>Status</dt><dd>In development</dd></div>
+            </dl>
+          </article>
+
+          <article class="proj">
+            <div>
+              <span class="mono">Research</span>
+              <h3>Machine learning in rolling bearing development</h3>
+              <p>Project thesis at the KTmfk chair, FAU. It maps how far ML has reached into bearing product development: a literature review of ML in engineering design, a practitioner survey and expert interviews with bearing engineers in the DACH region, and a comparison of the sector's adoption against other industries.</p>
+              <div class="tags"><span class="tag">Literature review</span><span class="tag">Survey design</span><span class="tag">Expert interviews</span><span class="tag">Industry benchmarking</span></div>
+            </div>
+            <dl class="spec">
+              <div><dt>Institute</dt><dd>KTmfk, FAU</dd></div>
+              <div><dt>Method</dt><dd>Mixed methods</dd></div>
+              <div><dt>Status</dt><dd>Writing, 2026</dd></div>
+            </dl>
+          </article>
+
+          <article class="proj">
+            <div>
+              <span class="mono">Power electronics</span>
+              <h3>Production technologies for power modules</h3>
+              <p>Lab series at FAPS covering how power modules are built and tested: thermal characterisation of a Semitrans 2 IGBT module, aluminium heavy-wire bonding, and pressure-assisted silver sintering, each written up as a full technical report.</p>
+              <div class="tags"><span class="tag">Thermal characterisation</span><span class="tag">Wire bonding</span><span class="tag">Ag sintering</span></div>
+            </div>
+            <dl class="spec">
+              <div><dt>Chair</dt><dd>FAPS, FAU</dd></div>
+              <div><dt>Format</dt><dd>Lab + reports</dd></div>
+              <div><dt>Device</dt><dd>Semitrans 2</dd></div>
+            </dl>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="skills">
+    <div class="wrap">
+      <div class="rail mono">Skills</div>
+      <div class="content">
+        <h2>Toolchain.</h2>
+        <div class="skills">
+          <div><h3>Modelling &amp; simulation</h3><p>MATLAB, Simulink, ANSYS</p></div>
+          <div><h3>Data &amp; ML</h3><p>Python, machine learning, Power BI</p></div>
+          <div><h3>Design &amp; CAD</h3><p>CATIA, Siemens NX</p></div>
+          <div><h3>EV systems</h3><p>BMS, ECU firmware, charging infrastructure</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="education">
+    <div class="wrap">
+      <div class="rail mono">Education</div>
+      <div class="content edu">
+        <div class="role">
+          <h3>M.Sc. Electromobility-ACES</h3>
+          <span class="when">Ongoing</span>
+          <p>Friedrich-Alexander-Universität Erlangen-Nürnberg</p>
+        </div>
+        <div class="role">
+          <h3>B.Tech Mechanical Engineering</h3>
+          <span class="when">Completed</span>
+          <p>Andhra University</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <h2>Looking for an <span>electromobility</span> internship in Germany.</h2>
+      <div>
+        <span class="mono">Based in Erlangen · Email</span>
+        <div class="mail">
+          <code id="email">sanapalamanojkumar2772@gmail.com</code>
+          <button class="copy" id="copy" type="button">Copy</button>
+        </div>
+        <div class="links">
+          <a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://github.com/manojkumarsanapala" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap mono"><span>© 2026 Manoj</span><span>Erlangen, DE</span></div>
+</footer>
+
+<script>
+(function(){
+  var N=12, base=[3682,3675,3690,3671,3686,3679,3693,3668,3684,3677,3689,3680];
+  var cellsEl=document.getElementById('cells'), labelsEl=document.getElementById('labels');
+  var bars=[], labs=[];
+  for(var i=0;i<N;i++){
+    var c=document.createElement('div'); c.className='cell';
+    var s=document.createElement('span'); c.appendChild(s); cellsEl.appendChild(c); bars.push(c);
+    var l=document.createElement('div'); l.textContent=(base[i]/1000).toFixed(2); labelsEl.appendChild(l); labs.push(l);
+  }
+  var soc=78.4;
+  function render(){
+    var mx=Math.max.apply(null,base), mn=Math.min.apply(null,base), sum=0;
+    for(var i=0;i<N;i++){
+      sum+=base[i];
+      bars[i].firstChild.style.height=(30+(base[i]-3640)/70*70)+'%';
+      bars[i].classList.toggle('bal', base[i]-mn>12 && base[i]===mx);
+      labs[i].textContent=(base[i]/1000).toFixed(2);
+    }
+    document.getElementById('vpack').textContent=(sum/1000).toFixed(2)+' V';
+    document.getElementById('dv').textContent=(mx-mn)+' mV';
+    document.getElementById('soc').textContent=soc.toFixed(1)+'%';
+    document.getElementById('mode').textContent=(mx-mn)>12?'Balancing':'Balanced';
+  }
+  render();
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(!reduce){
+    setInterval(function(){
+      var mx=Math.max.apply(null,base), mn=Math.min.apply(null,base);
+      for(var i=0;i<N;i++){
+        if(base[i]===mx && mx-mn>12) base[i]-=2;          // bleed the highest cell
+        base[i]+=Math.round((Math.random()-.5)*2);       // measurement noise
+        if(mx-mn<=12 && Math.random()<.04) base[i]+=8;   // drift so the cycle repeats
+      }
+      soc=Math.min(80,Math.max(76,soc+(Math.random()-.45)*.1));
+      render();
+    },900);
+  }
+
+  document.getElementById('copy').addEventListener('click',function(e){
+    var btn=e.currentTarget, txt=document.getElementById('email').textContent;
+    function done(){btn.textContent='Copied';setTimeout(function(){btn.textContent='Copy'},1600)}
+    function fallback(){var r=document.createRange();r.selectNodeContents(document.getElementById('email'));var s=getSelection();s.removeAllRanges();s.addRange(r);btn.textContent='Selected'}
+    try{navigator.clipboard.writeText(txt).then(done,fallback)}catch(err){fallback()}
+  });
+})();
+</script>
+</body>
+</html>
